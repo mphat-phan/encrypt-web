@@ -58,3 +58,4 @@ var decryptCipher= function(cipher,a,b)
    var s= "Decrypted Message is: "+ decryptCipher(msg1, 4, 2);
    console.log(s);
     s="encryted Message is: " + encryptMessage(msg1,4,2);
+    console.log(s);
