@@ -53,9 +53,9 @@ var decryptCipher= function(cipher,a,b)
 }
  
 //Driver Program
-    var msg1 = "ibt nct nkt";
+var msg1 = "ibt nct nkt";
  
-   var s= "Decrypted Message is: "+ decryptCipher(msg1, 4, 2);
-   console.log(s);
-    s="encryted Message is: " + encryptMessage(msg1,4,2);
-    console.log(s);
+var s= "Decrypted Message is: "+ decryptCipher(msg1, 4, 2);
+console.log(s);
+s="encryted Message is: " + encryptMessage(msg1,4,2);
+console.log(s);
