@@ -1,3 +1,4 @@
+import { filterMsg,undoMsg } from "./commons/index.js";
 const encode = (k, s) => {
     k = k.toUpperCase();
     s = s.toUpperCase();
@@ -28,8 +29,15 @@ const decode = (k, s) => {
     }
     return r;
 }
+const message = "Phan Minh Phat";
+const key = "hello";
 
-var s = encode("hello","my name is tam");
-console.log(s);
-s= decode("hello",s);
-console.log(s);
+const _filterMsg = filterMsg(message);
+const cipherMsg = encode(key,_filterMsg);
+const undoCipher = undoMsg(cipherMsg,message);
+console.log(undoCipher);
+
+const _filterCipher = filterMsg(undoCipher);
+const plainMsg = decode(key,_filterCipher);
+const undoPlain = undoMsg(plainMsg,undoCipher);
+console.log(undoPlain);
