@@ -301,7 +301,7 @@ var alphabet = ['A','B','C','D','E','F','G','H','I','J','K','L','M','N','O','P',
 
 //Inverse 2d Matrix
 var matrix2dInput = [
-    [ 3, 3 ], [ 2, 5]
+    [ 3, 12 ], [ 2, 5]
 ];
 
 //Inverse 3d Matrix
