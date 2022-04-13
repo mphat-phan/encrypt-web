@@ -1,4 +1,21 @@
-import { isUpper } from "./commons/index.js";
+
+const isUpper = (str) => {
+    return !/[a-z]/.test(str) && /[A-Z]/.test(str);
+}
+const check = (a)=>{
+
+        var flag = 0;
+        for (var i = 0; i < 26; i++)
+        {
+            flag = (a * i) % 26;
+
+            if (flag == 1)
+            {
+                return true;
+            }
+        }
+        return false;
+}
 const encryptMessage = (msg,a,b) => {
     ///Cipher Text initially empty
     var cipher = "";
@@ -24,7 +41,7 @@ const decryptCipher = (cipher,a,b) => {
      
     //Tìm a ^ -1 (nghịch đảo nhân của a
     // trong nhóm các số nguyên modulo m)
-    for (let i = 0; i < 26; i++)
+    for (var i = 0; i < 26; i++)
     {
         flag = (a * i) % 26;
 
