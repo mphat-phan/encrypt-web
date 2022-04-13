@@ -7,3 +7,31 @@ export const threeDMatrix = [
     [21,   18,   21],
     [2,    2,    19]
 ];
+
+export const encryptionArr = [
+    {
+        id : 0,
+        name : 'Hill Cipher',
+        description : 'ABC',
+    },
+    {
+        id : 1,
+        name : 'Ceasar Cipher',
+        description : 'ABC',
+    },
+    {
+        id : 2,
+        name : 'Subtitute Cipher',
+        description : 'ABC',
+    },
+    {
+        id : 3,
+        name : 'Affine Cipher',
+        description : 'ABC',
+    },
+    {
+        id : 4,
+        name : 'Vigenere Cipher',
+        description : 'ABC',
+    },
+]
