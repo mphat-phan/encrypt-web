@@ -1,5 +1,5 @@
 import * as constants from "../Encryption JS/constants/index.js";
-import { isLower,isUpper,upperStr,lowerStr,mod26 } from "./commons/index.js";
+import { mod26,filterMsg,undoMsg } from "./commons/index.js";
 
 /**
  * 
@@ -207,97 +207,22 @@ const printMes = (_text, n) => {
     return params.join('');
 }
 
-//Find space index of message
-const spaceIndexs = (_message) => {
-    const spaceIndex = [];
-    let index = 0;
-    for(let i = 0; i < _message.length; i++){
-        
-        if(_message[i] == ' ' || _message[i] == '\t' || _message[i] == '\n'){
-            spaceIndex.push(i - index);
-            index++;
-        } 
-    }
-
-    return spaceIndex;
-}
-
-//Find lower index of message
-const lowerIndexs = (_message) => {
-    const lowerIndex = [];
-    let index = 0;
-    for(let i = 0; i < _message.length; i++){
-        
-        if(isLower(_message[i])){
-            lowerIndex.push(i);
-            index++;
-        } 
-    }
-
-    return lowerIndex;
-}
-
-//Remove space message fn 
-const removeSpaceMsg = (_message) => {
-    _message = _message.replace(/\s+/g, '');
-    return _message;
-}
-
-//Undo root message
-const undoMsg = (space, lower, msg, n) => {
-    const root = []; 
-    let indexSpace = 0;
-    let indexLower = 0;
-    //Add space to msg
-    for(let i=0; i<n; i++){
-        if(i == space[indexSpace]){
-            root.push(' ');
-            root.push(msg[i]);
-            indexSpace++;
-            continue;
-        }
-        else{
-            root.push(msg[i]);
-        }
-    }
-    //Lower msg
-    for(let i=0; i<n; i++){
-        if(i == lower[indexLower] && isUpper(root[i])){
-            root[i] = lowerStr(root[i]);
-            indexLower++;
-        }
-    }
-    return root.join('');
-}
-
-//Convert root msg to filter msg function
-const filterMsg = (_message) => {
-    let msg = upperStr(_message);
-    msg = removeSpaceMsg(msg);
-    return msg;
-}
-
 //Root message
 const rootMessage = "Phan Minh Phat xin chao moi nguoi nhe";
 //Filter message
 const filterMessage = filterMsg(rootMessage);
 
-let spaceIndexArr = spaceIndexs(rootMessage);
-let lowerIndexArr = lowerIndexs(rootMessage);
-
 //Print cipher text
 const cipherMessage = encrypt(filterMessage,[...constants.threeDMatrix]);
-const undo_cipherMessage = undoMsg(spaceIndexArr,lowerIndexArr,cipherMessage, rootMessage.length);
+const undo_cipherMessage = undoMsg(cipherMessage, rootMessage);
 console.log(undo_cipherMessage);
 
 //Filter cipher message
 const filterCipherMessage = filterMsg(undo_cipherMessage);
-
-spaceIndexArr = spaceIndexs(undo_cipherMessage);
-lowerIndexArr = lowerIndexs(undo_cipherMessage);
+ 
 
 //Print plant text
 const plainMessage = decrypt(filterCipherMessage,[...constants.threeDMatrix]);
-console.log(undoMsg(spaceIndexArr,lowerIndexArr,plainMessage, undo_cipherMessage.length));
+console.log(undoMsg(plainMessage, undo_cipherMessage));
 
 

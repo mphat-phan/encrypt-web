@@ -1,5 +1,5 @@
 //Kiểm tra chữ in hoa
-import { isUpper } from "./commons/index.js";
+import { isUpper,filterMsg,undoMsg } from "./commons/index.js";
   
 //Xử lý giải mã
 const decryptCipher = (msg, key) => {
@@ -43,9 +43,21 @@ const encryptCipher = (msg, key) => {
   
     return encipher;
 }
-var msgnew = "MKQTVMAD";
-const cipherText = encryptCipher(msgnew,3);
-console.log("Encryted Message is: " + cipherText);
-console.log("Decrypted Message is: "+ decryptCipher(cipherText,3)); 
+const msgnew = "HELLO moi nguoi";
+
+const _filterMsg = filterMsg(msgnew);
+
+const cipherText = encryptCipher(_filterMsg, 3); 
+
+console.log("Encryted Message is: ");
+const undoCipher = undoMsg(cipherText,msgnew); 
+console.log(undoCipher);
+
+console.log("Decryted Message is: ");
+const _filterCipherMsg = filterMsg(undoCipher);
+const plainText = decryptCipher(_filterCipherMsg, 3);
+const undoPlain = undoMsg(plainText,undoCipher);
+console.log(undoPlain);
+
 
      
