@@ -44,5 +44,4 @@ function Decipher( input,  cipherAlphabet,  plainAlphabet)
     var plainText = "ghenvoicovid";
     
     var cipherText = Encipher(plainText, cipherAlphabet, plainAlphabet);
-    cout << cipherText << endl;
-	cout << Decipher(cipherText, cipherAlphabet, plainAlphabet) << endl;
+	console.log(cipherText);
