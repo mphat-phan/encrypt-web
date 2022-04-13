@@ -1,15 +1,6 @@
-const isUpper = (str) => {
-    return !/[a-z]/.test(str) && /[A-Z]/.test(str);
-}
-const findIndexAlphabet = (str,alphabet) => {
-	for(let i=0; i<alphabet.length; i++){
-		if(str == alphabet[i]){
-			return i;
-		}
-	}
-}
-function Cipher(input,  oldAlphabet,  newAlphabet)
-{
+import { isUpper, findIndexAlphabet } from "./commons/index.js";
+
+const Cipher = (input,  oldAlphabet,  newAlphabet) =>{
 	var output = "";
 	var inputLen = input.length;
 
@@ -30,14 +21,12 @@ function Cipher(input,  oldAlphabet,  newAlphabet)
 	return output;
 }
 //Hàm mã hóa plain text
-function Encipher(input,  _cipherAlphabet,  _plainAlphabet)
-{
+const Encipher = (input,  _cipherAlphabet,  _plainAlphabet) =>{
 	//Từ mã plainAlphabet thay thế thành cipherAlphabet => Encipher
 	return Cipher(input, plainAlphabet, cipherAlphabet);
 }
 //Hàm giải mã cipher text
-function Decipher(input,  _cipherAlphabet,  _plainAlphabet)
-{
+const Decipher = (input,  _cipherAlphabet,  _plainAlphabet) =>{
 	//Từ mã cipherAlphabet thay thế thành plainAlphabet => Decipher
 	return Cipher(input, cipherAlphabet, plainAlphabet);
 }

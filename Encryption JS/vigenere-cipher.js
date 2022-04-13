@@ -1,4 +1,4 @@
-var encode = function(k, s){
+const encode = (k, s) => {
     k = k.toUpperCase();
     s = s.toUpperCase();
     var r = "";
@@ -13,7 +13,7 @@ var encode = function(k, s){
     }
     return r;
   }
-var decode = function(k, s){
+const decode = (k, s) => {
     k = k.toUpperCase();
     s = s.toUpperCase();
     var r = "";
@@ -28,7 +28,7 @@ var decode = function(k, s){
     }
     return r;
 }
-  
+
 var s = encode("hello","my name is tam");
 console.log(s);
 s= decode("hello",s);

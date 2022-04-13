@@ -1,16 +1,14 @@
 //Kiểm tra chữ in hoa
-var isUpperCase = (msg) => {
-    return msg === msg.toUpperCase();
-};
+import { isUpper } from "./commons/index.js";
   
 //Xử lý giải mã
-function decryptCipher (msg, key) {
+const decryptCipher = (msg, key) => {
     var decipher = "";
   
     //Giải mã từng ký tự
     for (var i = 0; i < msg.length; i++) {
         //Nếu là chữ in hoa
-        if (isUpperCase(msg[i])) {
+        if (isUpper(msg[i])) {
         decipher += String.fromCharCode(
             ((msg.charCodeAt(i) - key - 65) % 26) + 65
         );
@@ -25,13 +23,13 @@ function decryptCipher (msg, key) {
 };
 
 //Xử lý mã hóa
-function encryptCipher(msg, key) {
+const encryptCipher = (msg, key) => {
     var encipher = "";
     
     //Mã hóa từng ký tự
     for (var i = 0; i < msg.length; i++) {
         //Nếu là chữ in hoa
-        if (isUpperCase(msg[i])) {
+        if (isUpper(msg[i])) {
             encipher += String.fromCharCode(
             ((msg.charCodeAt(i) + key - 65) % 26) + 65
           );

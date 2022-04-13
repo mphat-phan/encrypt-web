@@ -1,13 +1,17 @@
+import * as constants from "../Encryption JS/constants/index.js";
+import { isLower,isUpper,upperStr,lowerStr,mod26 } from "./commons/index.js";
+
 /**
  * 
  * @param {msg} message 
- * @returns array - from alphabet to number
+ * @returns array - from constants.alphabet to number
  */
+
 const convertAlphabet = (msg) => {
     const mesAlphabet = [];
     for(const element of msg){
-        for(let i = 0; i < alphabet.length; i++){
-            if(element == alphabet[i]){
+        for(let i = 0; i < constants.alphabet.length; i++){
+            if(element == constants.alphabet[i]){
                 mesAlphabet.push(i);
                 break;
             }
@@ -19,7 +23,7 @@ const convertAlphabet = (msg) => {
 /**
  * msg : message
  * n : length of matrix
- * @returns matrix - from alphabet to number
+ * @returns matrix - from constants.alphabet to number
  */
 const convertMessage = (_msg, m) => {
     const n = ((_msg.length)/m).toFixed();
@@ -38,11 +42,6 @@ const convertMessage = (_msg, m) => {
         }
     }
     return mes;
-}
-
-//Mod 26 function
-const mod26 = (x) => {
-    return x >= 0 ? (x%26) : 26-(Math.abs(x)%26) ;
 }
 
 //Find det function
@@ -64,13 +63,14 @@ const findDetInverse = (R , D = 26) => // R is the remainder or determinant
     
     const p = [];
     const q = [] ;
-    for(let i = 0; i < 100; i++){
+    let i;
+    for(i = 0; i < 100; i++){
         p[i] = 0;
         q[i] = 0;
     }
     p[0] = 0;
 	p[1] = 1;
-    let i = 0;
+    i = 0;
 	while(R!=0)
 	{
 		q[i] = Math.trunc(D/R) ;
@@ -201,7 +201,7 @@ const printMes = (_text, n) => {
     const params = [];
     for(let i = 0; i < _text.length; i++){
         for(let j = 0; j < n; j++){
-            params.push(alphabet[_text[i][j]]);
+            params.push(constants.alphabet[_text[i][j]]);
         }
     }
     return params.join('');
@@ -222,15 +222,6 @@ const spaceIndexs = (_message) => {
     return spaceIndex;
 }
 
-//Check Lowercase in string fn
-const isLower = (str) => {
-    return /[a-z]/.test(str) && !/[A-Z]/.test(str);
-}
-
-//Check Lowercase in string fn
-const isUpper = (str) => {
-    return !/[a-z]/.test(str) && /[A-Z]/.test(str);
-}
 //Find lower index of message
 const lowerIndexs = (_message) => {
     const lowerIndex = [];
@@ -279,37 +270,12 @@ const undoMsg = (space, lower, msg, n) => {
     return root.join('');
 }
 
-//Convert Upper string function
-const upperStr = (_message) => {
-    return _message.toUpperCase();
-}
-
-//Convert lower string function
-const lowerStr = (_message) => {
-    return _message.toLowerCase();
-}
-
 //Convert root msg to filter msg function
 const filterMsg = (_message) => {
     let msg = upperStr(_message);
     msg = removeSpaceMsg(msg);
     return msg;
 }
-
-//Alphabet 25 words
-var alphabet = ['A','B','C','D','E','F','G','H','I','J','K','L','M','N','O','P','Q','R','S','T','U','V','W','X','Y','Z'];
-
-//Inverse 2d Matrix
-var matrix2dInput = [
-    [ 3, 12 ], [ 2, 5]
-];
-
-//Inverse 3d Matrix
-var matrix3dInput = [
-    [17,   17,   5],
-    [21,   18,   21],
-    [2,    2,    19]
-];
 
 //Root message
 const rootMessage = "Phan Minh Phat xin chao moi nguoi nhe";
@@ -320,7 +286,7 @@ let spaceIndexArr = spaceIndexs(rootMessage);
 let lowerIndexArr = lowerIndexs(rootMessage);
 
 //Print cipher text
-const cipherMessage = encrypt(filterMessage,[...matrix2dInput]);
+const cipherMessage = encrypt(filterMessage,[...constants.threeDMatrix]);
 const undo_cipherMessage = undoMsg(spaceIndexArr,lowerIndexArr,cipherMessage, rootMessage.length);
 console.log(undo_cipherMessage);
 
@@ -331,7 +297,7 @@ spaceIndexArr = spaceIndexs(undo_cipherMessage);
 lowerIndexArr = lowerIndexs(undo_cipherMessage);
 
 //Print plant text
-const plainMessage = decrypt(filterCipherMessage,[...matrix2dInput]);
+const plainMessage = decrypt(filterCipherMessage,[...constants.threeDMatrix]);
 console.log(undoMsg(spaceIndexArr,lowerIndexArr,plainMessage, undo_cipherMessage.length));
 
 
