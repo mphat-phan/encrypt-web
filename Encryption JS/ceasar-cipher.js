@@ -45,8 +45,8 @@ function encryptCipher(msg, key) {
   
     return encipher;
 }
-    var msgnew = "MKQTVMAD";
-    var str = "Decrypted Message is: "+ decryptCipher(msgnew,3);
-    console.log(str); 
-    "Encryted Message is: " + encryptCipher(msgnew,3);
+var msgnew = "MKQTVMAD";
+var str = "Decrypted Message is: "+ decryptCipher(msgnew,3);
+console.log(str); 
+"Encryted Message is: " + encryptCipher(msgnew,3);
      
