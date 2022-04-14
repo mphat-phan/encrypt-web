@@ -74,8 +74,10 @@ $(function () {
             case 'subtitute-cipher' : {
                 const subInput = document.querySelector('#subtituteInput-encrypt');
                 key = subInput.value;
-                console.log(key);
                 break;
+            }
+            case 'vigenere-cipher': {
+
             }
         } 
 
@@ -176,7 +178,9 @@ switch(objEncrypt.slug){
     }
 
     case 'vigenere-cipher' : {
-        
+        keyContentEncrypt.insertAdjacentHTML('afterbegin','Hello');
+        keyContentDecrypt.insertAdjacentHTML('afterbegin','Hello');
+        break;
     }
 }
 

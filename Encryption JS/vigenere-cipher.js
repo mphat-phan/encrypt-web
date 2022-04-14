@@ -29,15 +29,5 @@ const decode = (k, s) => {
     }
     return r;
 }
-const message = "Phan Minh Phat";
-const key = "hello";
 
-const _filterMsg = filterMsg(message);
-const cipherMsg = encode(key,_filterMsg);
-const undoCipher = undoMsg(cipherMsg,message);
-console.log(undoCipher);
 
-const _filterCipher = filterMsg(undoCipher);
-const plainMsg = decode(key,_filterCipher);
-const undoPlain = undoMsg(plainMsg,undoCipher);
-console.log(undoPlain);
