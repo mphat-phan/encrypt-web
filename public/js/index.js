@@ -6,6 +6,7 @@ import { displaySubtitule } from "./subtituteDisplay.js";
 import { encryptPlaintext,decryptCyphertext } from "./encrypt.js";
 import { displayAffine } from "./affineDisplay.js"
 import { displayVigenere } from "./vigenereDisplay.js";
+import { displayCeasar } from "./ceasarDisplay.js";
 import {check as CheckKeyAffine } from "../../Encryption JS/affine-cipher.js";
 const menulist = document.querySelector('#menu-list');
 const breadcrumbMenu = document.querySelector('#breadcrumb-menu');
@@ -82,6 +83,14 @@ $(function () {
                 key = vigeInput.value;
                 break;
             }
+            case 'ceasar-cipher' : {
+                const ceasarInput = document.querySelector('#ceasarInput-encrypt');
+                key = ceasarInput.value;
+                break;
+            }
+            case 'vigenere-cipher': {
+
+            }
         } 
 
         //Neu flag = true chạy hàm encrypt
@@ -116,6 +125,7 @@ $(function () {
                 }
                 break;
             }
+
             case 'affine-cipher':{
                 const affineInput = document.querySelectorAll('.affinekey-decrypt');
                 key = [];
@@ -132,6 +142,7 @@ $(function () {
                 }
                 break;
             }
+
             case 'subtitute-cipher' : {
                 const subInput = document.querySelector('#subtituteInput-decrypt');
                 key = subInput.value;
@@ -140,6 +151,10 @@ $(function () {
             case 'vigenere-cipher' : {
                 const vigeInput = document.querySelector('.vigenerekey-decrypt');
                 key = vigeInput.value;
+            }
+            case 'ceasar-cipher' : {
+                const ceasarInput = document.querySelector('#ceasarInput-decrypt');
+                key = ceasarInput.value;
                 break;
             }
         }
@@ -176,7 +191,9 @@ switch(objEncrypt.slug){
     }
 
     case 'ceasar-cipher' : {
-        
+        keyContentEncrypt.insertAdjacentHTML('afterbegin',displayCeasar('encrypt'));
+        keyContentDecrypt.insertAdjacentHTML('afterbegin',displayCeasar('decrypt'));
+        break;
     }
 
     case 'subtitute-cipher' : {
