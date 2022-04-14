@@ -69,7 +69,7 @@ const decryptCipher = (cipher,a,b) => {
 }
  
 //Driver Program
-const msg1 = "ibt nct nkt";
-const _decryptMsg =  encryptMessage(msg1, 4, 2);
+const msg1 = "Minh Pkat";
+const _decryptMsg =  encryptMessage(msg1, 5, 3);
 console.log("Encrypted Message is: " + _decryptMsg);
-console.log("Decrypted Message is: " + decryptCipher(_decryptMsg, 4, 2));
+console.log("Decrypted Message is: " + decryptCipher(_decryptMsg, 5, 3));
