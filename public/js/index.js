@@ -5,6 +5,7 @@ import { displayHillKey,displayHillKeyInput } from "./hillDisplay.js";
 import { displaySubtitule } from "./subtituteDisplay.js";
 import { encryptPlaintext,decryptCyphertext } from "./encrypt.js";
 import { displayAffine } from "./affineDisplay.js"
+import { displayCeasar } from "./ceasarDisplay.js";
 import {check as CheckKeyAffine } from "../../Encryption JS/affine-cipher.js";
 const menulist = document.querySelector('#menu-list');
 const breadcrumbMenu = document.querySelector('#breadcrumb-menu');
@@ -76,6 +77,11 @@ $(function () {
                 key = subInput.value;
                 break;
             }
+            case 'ceasar-cipher' : {
+                const ceasarInput = document.querySelector('#ceasarInput-encrypt');
+                key = ceasarInput.value;
+                break;
+            }
             case 'vigenere-cipher': {
 
             }
@@ -113,6 +119,7 @@ $(function () {
                 }
                 break;
             }
+
             case 'affine-cipher':{
                 const affineInput = document.querySelectorAll('.affinekey-decrypt');
                 key = [];
@@ -129,10 +136,17 @@ $(function () {
                 }
                 break;
             }
+
             case 'subtitute-cipher' : {
                 const subInput = document.querySelector('#subtituteInput-decrypt');
                 key = subInput.value;
                 break;  
+            }
+
+            case 'ceasar-cipher' : {
+                const ceasarInput = document.querySelector('#ceasarInput-decrypt');
+                key = ceasarInput.value;
+                break;
             }
         }
 
@@ -168,7 +182,9 @@ switch(objEncrypt.slug){
     }
 
     case 'ceasar-cipher' : {
-        
+        keyContentEncrypt.insertAdjacentHTML('afterbegin',displayCeasar('encrypt'));
+        keyContentDecrypt.insertAdjacentHTML('afterbegin',displayCeasar('decrypt'));
+        break;
     }
 
     case 'subtitute-cipher' : {

@@ -2,7 +2,7 @@
 import { isUpper,filterMsg,undoMsg } from "./commons/index.js";
   
 //Xử lý giải mã
-const decryptCipher = (msg, key) => {
+export const decryptCipher = (msg, key) => {
     var decipher = "";
   
     //Giải mã từng ký tự
@@ -23,7 +23,7 @@ const decryptCipher = (msg, key) => {
 };
 
 //Xử lý mã hóa
-const encryptCipher = (msg, key) => {
+export const encryptCipher = (msg, key) => {
     var encipher = "";
     
     //Mã hóa từng ký tự
@@ -43,21 +43,5 @@ const encryptCipher = (msg, key) => {
   
     return encipher;
 }
-const msgnew = "HELLO moi nguoi";
-
-const _filterMsg = filterMsg(msgnew);
-
-const cipherText = encryptCipher(_filterMsg, 3); 
-
-console.log("Encryted Message is: ");
-const undoCipher = undoMsg(cipherText,msgnew); 
-console.log(undoCipher);
-
-console.log("Decryted Message is: ");
-const _filterCipherMsg = filterMsg(undoCipher);
-const plainText = decryptCipher(_filterCipherMsg, 3);
-const undoPlain = undoMsg(plainText,undoCipher);
-console.log(undoPlain);
-
 
      
