@@ -69,8 +69,8 @@ const _encryptMsg =  encryptMessage(_filterMsg, 5, 3);
 const _undoEncryptMsg = undoMsg(_encryptMsg,msg);
 console.log("Encrypted Message is: " + _undoEncryptMsg);
 
-const _filterEncryptMsg = filterMsg(_undoEncryptMsg);
-const _decryptMsg = decryptCipher(_filterEncryptMsg, 5, 3);
-const _undoDecryptMsg = undoMsg(_decryptMsg,_undoEncryptMsg);
-console.log("Decrypted Message is: " + _undoDecryptMsg);
+// const _filterEncryptMsg = filterMsg(_undoEncryptMsg);
+// const _decryptMsg = decryptCipher(_filterEncryptMsg, 5, 3);
+// const _undoDecryptMsg = undoMsg(_decryptMsg,_undoEncryptMsg);
+// console.log("Decrypted Message is: " + _undoDecryptMsg);
 
