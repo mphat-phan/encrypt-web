@@ -88,9 +88,6 @@ $(function () {
                 key = ceasarInput.value;
                 break;
             }
-            case 'vigenere-cipher': {
-
-            }
         } 
 
         //Neu flag = true chạy hàm encrypt
@@ -151,6 +148,7 @@ $(function () {
             case 'vigenere-cipher' : {
                 const vigeInput = document.querySelector('.vigenerekey-decrypt');
                 key = vigeInput.value;
+                break;
             }
             case 'ceasar-cipher' : {
                 const ceasarInput = document.querySelector('#ceasarInput-decrypt');
