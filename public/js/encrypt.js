@@ -15,10 +15,8 @@ export const encryptPlaintext = (slug, msg, key) => {
     }
     if(slug == 'affine-cipher'){
         console.log(filter);
-        console.log(key[0]);
-        console.log(key[1]);
-        a= encryptAffine(filter,key[0],key[1]);
-        console.log(a);
+      
+        a= encryptAffine(filter,parseInt(key[0]),parseInt(key[1]));
     }
     if(slug == 'subtitute-cipher'){
         a = encryptSubtitute(filter,key,constants.subAlphabet1);
@@ -37,7 +35,7 @@ export const decryptCyphertext = (slug, msg, key) => {
         a = decryptHill(filter,[...key]);
     }
     if(slug == 'affine-cipher'){
-        a= decryptAffine(filter,key[0],key[1]);
+        a= decryptAffine(filter,parseInt(key[0]),parseInt(key[1]));
     }
     if(slug == 'subtitute-cipher'){
         a = decryptSubtitute(filter,key,constants.subAlphabet1);
