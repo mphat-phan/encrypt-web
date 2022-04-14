@@ -76,6 +76,10 @@ $(function () {
             case 'subtitute-cipher' : {
                 const subInput = document.querySelector('#subtituteInput-encrypt');
                 key = subInput.value;
+                if(key.length!=26){
+                    msg = "Nhập key sai"
+                    flag = false;
+                }
                 break;
             }
             case 'vigenere-cipher' : {
@@ -143,6 +147,10 @@ $(function () {
             case 'subtitute-cipher' : {
                 const subInput = document.querySelector('#subtituteInput-decrypt');
                 key = subInput.value;
+                if(key.length!=26){
+                    msg = "Nhập key sai"
+                    flag = false;
+                }
                 break;  
             }
             case 'vigenere-cipher' : {
