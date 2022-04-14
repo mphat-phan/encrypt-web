@@ -1,7 +1,7 @@
 import { encrypt as encryptHill, decrypt as decryptHill } from "../../Encryption JS/hill-cipher.js";
 import { Decipher as decryptSubtitute, Encipher as encryptSubtitute} from "../../Encryption JS/subtitute-cipher.js";
 import { encryptMessage as encryptAffine, decryptCipher as decryptAffine } from "../../Encryption JS/affine-cipher.js";
-
+import { encode as encryptVigenere, decode as decryptVigenere} from "../../Encryption JS/vigenere-cipher.js";
 import { undoMsg, filterMsg} from "../../Encryption JS/commons/index.js";
 import { displayResult } from "./commons.js";
 import * as constants from "../../Encryption JS/constants/index.js";
@@ -23,6 +23,7 @@ export const encryptPlaintext = (slug, msg, key) => {
         a = encryptSubtitute(filter,key,constants.subAlphabet1);
     }
     if(slug == 'vigenere-cipher'){
+        a = encryptVigenere(key,filter)
     }
     const undo = undoMsg(a,msg);
     displayResult(undo,encryptResult);
@@ -42,6 +43,9 @@ export const decryptCyphertext = (slug, msg, key) => {
     }
     if(slug == 'subtitute-cipher'){
         a = decryptSubtitute(filter,key,constants.subAlphabet1);
+    }
+    if(slug == 'vigenere-cipher'){
+        a = decryptVigenere(key,filter);
     }
     const undo = undoMsg(a,msg);
     displayResult(undo,decryptResult);
