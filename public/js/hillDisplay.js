@@ -22,13 +22,14 @@ export const displayHillKey = (elm) => {
             <option value="2" selected>Two Direction Matrix 2 x 2</option>
             <option value="3">Three Direction Matrix 3 x 3</option>
         </select>
-        <div class="col">
-            <div class="badge bg-warning text-wrap">
-                Nhập ma trận nghịch đảo
+       
+        <div class="row">
+            <div class="col">
+                <div id= "hillMatrix-${elm}" class="mt-3">
+                    ${displayHillKeyInput(elm,2)}
+                <div>
             </div>
-        <div>
-        <div id= "hillMatrix-${elm}" class="mt-3">
-            ${displayHillKeyInput(elm,2)}
-        <div>
+        </div>
+        
     `
 }
