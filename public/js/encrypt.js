@@ -29,7 +29,7 @@ export const decryptCyphertext = (slug, msg, key) => {
         a = decryptHill(filter,[...key]);
     }
     if(slug == 'subtitute-cipher'){
-        a = decryptSubtitute(filter,constants.subAlphabet1,key);
+        a = decryptSubtitute(filter,key,constants.subAlphabet1);
     }
     const undo = undoMsg(a,msg);
     displayResult(undo,decryptResult);

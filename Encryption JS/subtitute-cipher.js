@@ -23,12 +23,12 @@ const Cipher = (input,  oldAlphabet,  newAlphabet) =>{
 //Hàm mã hóa plain text
 export const Encipher = (input,  _cipherAlphabet,  _plainAlphabet) =>{
 	//Từ mã plainAlphabet thay thế thành cipherAlphabet => Encipher
-	return Cipher(input, plainAlphabet, cipherAlphabet);
+	return Cipher(input, _plainAlphabet, _cipherAlphabet);
 }
 //Hàm giải mã cipher text
 export const Decipher = (input,  _cipherAlphabet,  _plainAlphabet) =>{
 	//Từ mã cipherAlphabet thay thế thành plainAlphabet => Decipher
-	return Cipher(input, cipherAlphabet, plainAlphabet);
+	return Cipher(input, _cipherAlphabet, _plainAlphabet);
 }
 
 
@@ -36,11 +36,3 @@ export const Decipher = (input,  _cipherAlphabet,  _plainAlphabet) =>{
 var plainAlphabet = "abcdefghijklmnopqrstuvwxyz";
 //Bảng chữ cái thay thế Alphabet
 var cipherAlphabet= "xnyahpogzqwbtsflrcvmuekjdi";
-//Plain text
-var text = "Phan Minh Phat";
-
-var cipherText = Encipher(text, cipherAlphabet, plainAlphabet);
-console.log(cipherText); 
-
-var plainText = Decipher(cipherText, plainAlphabet, cipherAlphabet);
-console.log(plainText);

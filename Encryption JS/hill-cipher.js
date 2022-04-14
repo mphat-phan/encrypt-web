@@ -207,18 +207,3 @@ const printMes = (_text, n) => {
     return params.join('');
 }
 
-//Root message
-const rootMessage = "Phan Minh Phat xin chao moi nguoi nhe";
-//Filter message
-const filterMessage = filterMsg(rootMessage);
-
-//Print cipher text
-const cipherMessage = encrypt(filterMessage,[...constants.threeDMatrix]);
-const undo_cipherMessage = undoMsg(cipherMessage, rootMessage);
-
-//Filter cipher message
-const filterCipherMessage = filterMsg(undo_cipherMessage);
- 
-
-//Print plant text
-const plainMessage = decrypt(filterCipherMessage,[...constants.threeDMatrix]);

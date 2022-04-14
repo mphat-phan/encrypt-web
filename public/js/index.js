@@ -55,12 +55,14 @@ $(function () {
             case 'subtitute-cipher' : {
                 const subInput = document.querySelector('#subtituteInput-encrypt');
                 key = subInput.value;
+                console.log(key);
+                break;
             }
         } 
 
         //Neu flag = true chạy hàm encrypt
         if(flag){
-            encryptPlaintext(objEncrypt.slug,plainText.value,constants.subAlphabet2);
+            encryptPlaintext(objEncrypt.slug,plainText.value,key);
         }
         else {
             alert(msg);
@@ -93,12 +95,13 @@ $(function () {
             case 'subtitute-cipher' : {
                 const subInput = document.querySelector('#subtituteInput-decrypt');
                 key = subInput.value;
+                break;  
             }
         }
 
         //Neu flag = true chạy hàm decrypt
         if(flag){
-            decryptCyphertext(objEncrypt.slug,cipherText.value,constants.subAlphabet2);
+            decryptCyphertext(objEncrypt.slug,cipherText.value,key);
         }
         else {
             alert(msg);
