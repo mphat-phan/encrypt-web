@@ -59,6 +59,10 @@ const decryptCipher = (cipher,a,b) => {
 }
  
 //Driver Program
+const msg1 = "Minh Pkat";
+const _decryptMsg =  encryptMessage(msg1, 5, 3);
+console.log("Encrypted Message is: " + _decryptMsg);
+console.log("Decrypted Message is: " + decryptCipher(_decryptMsg, 5, 3));
 const msg = "An toan";
 const _filterMsg = filterMsg(msg);
 const _encryptMsg =  encryptMessage(_filterMsg, 5, 3);
