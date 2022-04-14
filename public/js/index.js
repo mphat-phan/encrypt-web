@@ -2,6 +2,7 @@ import * as constants from "../../Encryption JS/constants/index.js";
 import { displayMenu,displayBreadcrumb } from "./UIDisplayMain.js";
 import { filterArr } from "./commons.js";
 import { displayHillKey,displayHillKeyInput } from "./hillDisplay.js";
+import { displaySubtitule } from "./subtituteDisplay.js";
 import { encryptPlaintext,decryptCyphertext } from "./encrypt.js";
 const menulist = document.querySelector('#menu-list');
 const breadcrumbMenu = document.querySelector('#breadcrumb-menu');
@@ -49,12 +50,17 @@ $(function () {
                         count++;
                     }
                 }
+                break;
             }
-        }
+            case 'subtitute-cipher' : {
+                const subInput = document.querySelector('#subtituteInput-encrypt');
+                key = subInput.value;
+            }
+        } 
 
         //Neu flag = true chạy hàm encrypt
         if(flag){
-            encryptPlaintext(objEncrypt.slug,plainText.value,key);
+            encryptPlaintext(objEncrypt.slug,plainText.value,constants.subAlphabet2);
         }
         else {
             alert(msg);
@@ -82,12 +88,17 @@ $(function () {
                         count++;
                     }
                 }
+                break;
+            }
+            case 'subtitute-cipher' : {
+                const subInput = document.querySelector('#subtituteInput-decrypt');
+                key = subInput.value;
             }
         }
 
         //Neu flag = true chạy hàm decrypt
         if(flag){
-            decryptCyphertext(objEncrypt.slug,cipherText.value,key);
+            decryptCyphertext(objEncrypt.slug,cipherText.value,constants.subAlphabet2);
         }
         else {
             alert(msg);
@@ -108,9 +119,12 @@ switch(objEncrypt.slug){
     case 'hill-cipher' : {
         keyContentEncrypt.insertAdjacentHTML('afterbegin',displayHillKey('encrypt'));
         keyContentDecrypt.insertAdjacentHTML('afterbegin',displayHillKey('decrypt'));
+        break;
     }
     case 'affine-cipher' : {
-        
+        keyContentEncrypt.insertAdjacentHTML('afterbegin','displayHillKey()');
+        keyContentDecrypt.insertAdjacentHTML('afterbegin','displayHillKey()');
+        break;
     }
 
     case 'ceasar-cipher' : {
@@ -118,7 +132,9 @@ switch(objEncrypt.slug){
     }
 
     case 'subtitute-cipher' : {
-        
+        keyContentEncrypt.insertAdjacentHTML('afterbegin',displaySubtitule('encrypt'));
+        keyContentDecrypt.insertAdjacentHTML('afterbegin',displaySubtitule('decrypt'));
+        break;
     }
 
     case 'vigenere-cipher' : {

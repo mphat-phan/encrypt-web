@@ -21,12 +21,12 @@ const Cipher = (input,  oldAlphabet,  newAlphabet) =>{
 	return output;
 }
 //Hàm mã hóa plain text
-const Encipher = (input,  _cipherAlphabet,  _plainAlphabet) =>{
+export const Encipher = (input,  _cipherAlphabet,  _plainAlphabet) =>{
 	//Từ mã plainAlphabet thay thế thành cipherAlphabet => Encipher
 	return Cipher(input, plainAlphabet, cipherAlphabet);
 }
 //Hàm giải mã cipher text
-const Decipher = (input,  _cipherAlphabet,  _plainAlphabet) =>{
+export const Decipher = (input,  _cipherAlphabet,  _plainAlphabet) =>{
 	//Từ mã cipherAlphabet thay thế thành plainAlphabet => Decipher
 	return Cipher(input, cipherAlphabet, plainAlphabet);
 }

@@ -1,4 +1,6 @@
 export const alphabet = ['A','B','C','D','E','F','G','H','I','J','K','L','M','N','O','P','Q','R','S','T','U','V','W','X','Y','Z'];
+export const subAlphabet1 = ['a','b','b','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','x'];
+export const subAlphabet2 = ['x','n','y','a','h','p','o','g','z','q','w','b','t','s','f','l','r','c','v','m','u','e','k','j','d','i'];
 export const twoDMatrix = [
     [ 3, 3 ], [ 2, 5]
 ];
