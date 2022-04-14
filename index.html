@@ -4,73 +4,119 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style.css">
-    <!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous"> -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link rel="stylesheet" href="public/css/style.css">
+    <link rel="shortcut icon" href="public/images/Logo.png" type="image/x-icon">
     <title>Document</title>
 </head>
 <body>
+
     <div class="container">
-        <section class="cipher">
-            <div class="cipher-left">
-                <h2 class="cipher-title">Các hệ mã</h2>
-                <ul class="cipher-list">
-                    <li class="cipher-list-item">
-                        <a class="cipher-list-link" href="">Hệ mã Ceasar</a>
-                    </li>
-                    <li class="cipher-list-item">
-                        <a class="cipher-list-link" href="">Hệ mã Ceasar</a>
-                    </li>
-                    <li class="cipher-list-item">
-                        <a class="cipher-list-link" href="">Hệ mã Ceasar</a>
-                    </li>
-                    <li class="cipher-list-item">
-                        <a class="cipher-list-link" href="">Hệ mã Ceasar</a>
-                    </li>
-                    <li class="cipher-list-item">
-                        <a class="cipher-list-link" href="">Hệ mã Ceasar</a>
-                    </li>
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <div class="container-fluid">
+          <a class="navbar-brand" href="#">
+            <img src="public/images/Logo.png" alt="" width="30" height="24" class="d-inline-block align-text-top">
+          </a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+              <li class="nav-item">
+                <a class="nav-link active" aria-current="page" href="#">Home</a>
+              </li>
+              <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                  Danh sách thuật toán mã hóa
+                </a>
+                <ul id="menu-list" class="dropdown-menu" aria-labelledby="navbarDropdown">
                 </ul>
-            </div>
-            <div class="cipher-content">
-                <div class="cipher-top">
-                    <h2 class="cipher-title">Hệ mã Ceasar</h2>
-                    <h4 class="cipher-heading">Encrypttion</h4>
-                    <form action="" class="cipher-form">
-                        <div class="cipher-group">
-                            <label for="cipher-input" class="cipher-label">Bản rõ</label>
-                            <input type="text" class="cipher-input" id="cipher-input">
+              </li>
+            </ul>
+            <form class="d-flex">
+              <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+              <button class="btn btn-outline-success" type="submit">Search</button>
+            </form>
+          </div>
+        </div>
+        </nav>
+        <nav aria-label="breadcrumb" id="breadcrumb-menu">
+        </nav>
+
+        <div class="row">
+            <div class="col">
+                <div class="row">
+                    <div class="col-3">
+                        <h4 class="cipher-heading">Encryption</h4>
+                    </div>
+                    <div class="col-6">
+                        <form action="" class="cipher-form">
+                            <div class="cipher-group">
+                                <div class="mb-3">
+                                    <label for="exampleFormControlTextarea1" class="form-label">Bản rõ</label>
+                                    <textarea class="form-control" id="plain-text" rows="3"></textarea>
+                                </div>
+                            </div>
+                            
+                            <div class="cipher-group mb-3">
+                                <div class="mb-3">
+                                    <label for="exampleFormControlInput1" class="form-label">Khóa</label>
+                                </div> 
+                                <div class="col" id="key-content-encrypt">
+                                    
+                                </div>
+                            </div>
+                            <button type="button" class="cipher-btn" id="encrypt-btn">Encrypt</button>          
+                        </form>
+                    </div>
+                    <div class="col-3">
+                        <div class="cipher-info">
+                            <h4 class="cipher-title">Kết quả</h4>
+                            <div class="cipher-desc" id="encrypt-result">
+                                No result
+                            </div>
                         </div>
-                        <div class="cipher-group">
-                            <label for="cipher-input" class="cipher-label">Khóa</label>
-                            <input type="text" class="cipher-input" id="cipher-input">
-                        </div>
-                        <button type="button" class="cipher-btn">Encrypt</button>
-                        <h5 class="cipher-result">Kết quả</h6>              
-                    </form>
+                    </div>
                 </div>
-                <div class="cipher-bot">
-                    <h4 class="cipher-heading">Decrypttion</h4>
-                    <form action="" class="cipher-form">
-                        <div class="cipher-group">
-                            <label for="cipher-input" class="cipher-label">Bản mã</label>
-                            <input type="text" class="cipher-input" id="cipher-input">
+                <div class="row mt-5">
+                    <div class="col-3">
+                        <h4 class="cipher-heading">Decryption</h4>
+                    </div>
+                    <div class="col-6">
+                        <form action="" class="cipher-form">
+                            <div class="cipher-group">
+                                <div class="mb-3">
+                                    <label for="exampleFormControlTextarea1" class="form-label">Bản mã</label>
+                                    <textarea class="form-control" id="cipher-text" rows="3"></textarea>
+                                  </div>
+                            </div>
+                            
+                            <div class="cipher-group  mb-3">
+                                <div class="mb-3">
+                                    <label for="exampleFormControlInput1" class="form-label">Khóa</label>
+                                </div> 
+                                <div class="col" id="key-content-decrypt">
+                                    
+                                </div>
+                            </div>
+                            <button type="button" class="cipher-btn" id="decrypt-btn">Decrypt</button>            
+                        </form>
+                    </div>
+                    <div class="col-3">
+                        <div class="cipher-info">
+                            <h4 class="cipher-title">Kết quả</h4>
+                            <div class="cipher-desc" id="decrypt-result">
+                                No result
+                            </div>
                         </div>
-                        <div class="cipher-group">
-                            <label for="cipher-input" class="cipher-label">Khóa</label>
-                            <input type="text" class="cipher-input" id="cipher-input">
-                        </div>
-                        <button type="button" class="cipher-btn">Decrypt</button>
-                        <h5 class="cipher-result">Kết quả</h6>              
-                    </form>
+                    </div>
                 </div>
             </div>
-            <div class="cipher-info">
-                <h2 class="cipher-title">Giải thuật</h2>
-                <div class="cipher-desc">
-                    Lorem ipsum dolor sit amet consectetur, adipisicing elit. Aperiam expedita nam eos dolorum fuga. Deserunt omnis, maiores dolores quos aliquam cum dolorum adipisci fugiat corporis qui labore magni eum et.
-                </div>
-            </div>
-        </section>
+        </div>
     </div>
+
 </body>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ==" crossorigin="anonymous" referrerpolicy="no-referrer" defer></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+<script type="module" src="public/js/index.js"></script>
 </html>

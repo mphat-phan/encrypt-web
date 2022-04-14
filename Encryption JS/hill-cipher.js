@@ -147,7 +147,7 @@ const findInverse = (m, n) =>{
 }
 
 //Encrypt plain text
-const encrypt = (msg, mtrx) => {
+export const encrypt = (msg, mtrx) => {
     
     const convrt_mes = convertMessage(msg,mtrx.length);
     //Declare Array
@@ -171,7 +171,7 @@ const encrypt = (msg, mtrx) => {
 }
 
 //Decrypt cipher text
-const decrypt = (msg, mtrx) => {
+export const decrypt = (msg, mtrx) => {
     const _cipher_Mes = convertMessage(msg,mtrx.length);
     const inverseMatrix = findInverse([...mtrx],mtrx.length);
 
@@ -215,7 +215,6 @@ const filterMessage = filterMsg(rootMessage);
 //Print cipher text
 const cipherMessage = encrypt(filterMessage,[...constants.threeDMatrix]);
 const undo_cipherMessage = undoMsg(cipherMessage, rootMessage);
-console.log(undo_cipherMessage);
 
 //Filter cipher message
 const filterCipherMessage = filterMsg(undo_cipherMessage);
@@ -223,6 +222,3 @@ const filterCipherMessage = filterMsg(undo_cipherMessage);
 
 //Print plant text
 const plainMessage = decrypt(filterCipherMessage,[...constants.threeDMatrix]);
-console.log(undoMsg(plainMessage, undo_cipherMessage));
-
-
