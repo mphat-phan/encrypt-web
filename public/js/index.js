@@ -4,6 +4,8 @@ import { filterArr } from "./commons.js";
 import { displayHillKey,displayHillKeyInput } from "./hillDisplay.js";
 import { displaySubtitule } from "./subtituteDisplay.js";
 import { encryptPlaintext,decryptCyphertext } from "./encrypt.js";
+import { displayAffine } from "./affineDisplay.js"
+import {check as CheckKeyAffine } from "../../Encryption JS/affine-cipher.js";
 const menulist = document.querySelector('#menu-list');
 const breadcrumbMenu = document.querySelector('#breadcrumb-menu');
 const plainText = document.querySelector('#plain-text');
@@ -52,6 +54,23 @@ $(function () {
                 }
                 break;
             }
+            case 'affine-cipher':{
+                const affineInput = document.querySelectorAll('.affinekey-encrypt');
+                key = [];
+                for(let i=0;i<2;i++){
+                    if(!affineInput[i].value){
+                        msg = "Nhập đủ 2 số";
+                        flag = false;
+                    }
+                    key.push(affineInput[i].value);
+
+                }
+                if(!CheckKeyAffine(key[0])){
+                    msg = "Key sai rui"
+                    flag = false;
+                }
+                break;
+            }
             case 'subtitute-cipher' : {
                 const subInput = document.querySelector('#subtituteInput-encrypt');
                 key = subInput.value;
@@ -92,6 +111,22 @@ $(function () {
                 }
                 break;
             }
+            case 'affine-cipher':{
+                const affineInput = document.querySelectorAll('.affinekey-decrypt');
+                key = [];
+                for(let i=0;i<2;i++){
+                    if(!affineInput[i].value){
+                        msg = "Nhập đủ 2 số";
+                        flag = false;
+                    }
+                    key.push(affineInput[i].value);
+                }
+                if(!CheckKeyAffine(key[0])){
+                    msg = "Key sai rui"
+                    flag = false;
+                }
+                break;
+            }
             case 'subtitute-cipher' : {
                 const subInput = document.querySelector('#subtituteInput-decrypt');
                 key = subInput.value;
@@ -125,8 +160,8 @@ switch(objEncrypt.slug){
         break;
     }
     case 'affine-cipher' : {
-        keyContentEncrypt.insertAdjacentHTML('afterbegin','displayHillKey()');
-        keyContentDecrypt.insertAdjacentHTML('afterbegin','displayHillKey()');
+        keyContentEncrypt.insertAdjacentHTML('afterbegin',displayAffine('encrypt'));
+        keyContentDecrypt.insertAdjacentHTML('afterbegin',displayAffine('decrypt'));
         break;
     }
 

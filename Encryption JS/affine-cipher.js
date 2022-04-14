@@ -1,7 +1,7 @@
 
 import { filterMsg, undoMsg} from '../Encryption JS/commons/index.js';
 
-const check = (a)=>{
+export const check = (a)=>{
 
     var flag = 0;
     for (var i = 0; i < 26; i++)
@@ -15,7 +15,7 @@ const check = (a)=>{
     }
     return false;
 }
-const encryptMessage = (msg,a,b) => {
+export const encryptMessage = (msg,a,b) => {
     ///Cipher Text initially empty
     var cipher = "";
     for (let i = 0; i < msg.length; i++)
@@ -28,7 +28,7 @@ const encryptMessage = (msg,a,b) => {
     return cipher;
 }
  
-const decryptCipher = (cipher,a,b) => {
+export const decryptCipher = (cipher,a,b) => {
     var msg = "";
     var a_inv = 0;
     var flag = 0;
@@ -59,15 +59,10 @@ const decryptCipher = (cipher,a,b) => {
 }
  
 //Driver Program
-const msg1 = "Minh Pkat";
-const _decryptMsg =  encryptMessage(msg1, 5, 3);
-console.log("Encrypted Message is: " + _decryptMsg);
-console.log("Decrypted Message is: " + decryptCipher(_decryptMsg, 5, 3));
-const msg = "An toan";
-const _filterMsg = filterMsg(msg);
-const _encryptMsg =  encryptMessage(_filterMsg, 5, 3);
-const _undoEncryptMsg = undoMsg(_encryptMsg,msg);
-console.log("Encrypted Message is: " + _undoEncryptMsg);
+// const msg1 = "MINHPHAT";
+// const _decryptMsg =  encryptMessage(msg1, 5, 3);
+// console.log("Encrypted Message is: " + _decryptMsg);
+// console.log("Decrypted Message is: " + decryptCipher(_decryptMsg, 5, 3));
 
 // const _filterEncryptMsg = filterMsg(_undoEncryptMsg);
 // const _decryptMsg = decryptCipher(_filterEncryptMsg, 5, 3);
