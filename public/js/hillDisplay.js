@@ -5,7 +5,7 @@ export const displayHillKeyInput = (elm,n) => {
         for(let j = 0; j < n; j++){ 
             html+= `
                 <input 
-                type="text"
+                type="number"
                 class="form-control hillMatrixInput-${elm}"
                 style="width:50px;text-align:center;"
                 >
