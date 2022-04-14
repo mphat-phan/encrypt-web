@@ -5,6 +5,7 @@ import { displayHillKey,displayHillKeyInput } from "./hillDisplay.js";
 import { displaySubtitule } from "./subtituteDisplay.js";
 import { encryptPlaintext,decryptCyphertext } from "./encrypt.js";
 import { displayAffine } from "./affineDisplay.js"
+import { displayVigenere } from "./vigenereDisplay.js";
 import { displayCeasar } from "./ceasarDisplay.js";
 import {check as CheckKeyAffine } from "../../Encryption JS/affine-cipher.js";
 const menulist = document.querySelector('#menu-list');
@@ -81,6 +82,11 @@ $(function () {
                 }
                 break;
             }
+            case 'vigenere-cipher' : {
+                const vigeInput = document.querySelector('.vigenerekey-encrypt');
+                key = vigeInput.value;
+                break;
+            }
             case 'ceasar-cipher' : {
                 const ceasarInput = document.querySelector('#ceasarInput-encrypt');
                 key = ceasarInput.value;
@@ -150,7 +156,10 @@ $(function () {
                 }
                 break;  
             }
-
+            case 'vigenere-cipher' : {
+                const vigeInput = document.querySelector('.vigenerekey-decrypt');
+                key = vigeInput.value;
+            }
             case 'ceasar-cipher' : {
                 const ceasarInput = document.querySelector('#ceasarInput-decrypt');
                 key = ceasarInput.value;
@@ -202,8 +211,8 @@ switch(objEncrypt.slug){
     }
 
     case 'vigenere-cipher' : {
-        keyContentEncrypt.insertAdjacentHTML('afterbegin','Hello');
-        keyContentDecrypt.insertAdjacentHTML('afterbegin','Hello');
+        keyContentEncrypt.insertAdjacentHTML('afterbegin',displayVigenere('encrypt'));
+        keyContentDecrypt.insertAdjacentHTML('afterbegin',displayVigenere('decrypt'));
         break;
     }
 }

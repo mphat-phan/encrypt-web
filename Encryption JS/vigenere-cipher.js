@@ -1,5 +1,6 @@
 import { filterMsg,undoMsg } from "./commons/index.js";
-const encode = (k, s) => {
+
+export const encode = (k, s) => {
     k = k.toUpperCase();
     s = s.toUpperCase();
     var r = "";
@@ -14,7 +15,7 @@ const encode = (k, s) => {
     }
     return r;
   }
-const decode = (k, s) => {
+export const decode = (k, s) => {
     k = k.toUpperCase();
     s = s.toUpperCase();
     var r = "";
