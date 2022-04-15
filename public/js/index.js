@@ -92,9 +92,6 @@ $(function () {
                 key = ceasarInput.value;
                 break;
             }
-            case 'vigenere-cipher': {
-
-            }
         } 
 
         //Neu flag = true chạy hàm encrypt
