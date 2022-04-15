@@ -1,7 +1,9 @@
 export const displayMenu = (arr) => {
     return arr.map(enc => {
         return `
-            <li><a class="dropdown-item" href="?q=${enc.slug}">${enc.name}</a></li>
+        <li class="nav-item">
+        <a class="nav-link" aria-current="page" href="/?q=${enc.slug}">${enc.name}</a>
+      </li>
         `;
     }).join('');
 }

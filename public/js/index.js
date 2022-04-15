@@ -181,7 +181,7 @@ $(function () {
 
 //--------------------Display UI--------------------------------
 //Menu
-menulist.insertAdjacentHTML('afterbegin', displayMenu(constants.encryptionArr));
+menulist.insertAdjacentHTML('beforeend', displayMenu(constants.encryptionArr));
 
 //Breadcrumb
 breadcrumbMenu.insertAdjacentHTML('afterbegin',displayBreadcrumb(objEncrypt));
